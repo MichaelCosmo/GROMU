@@ -1,3 +1,8 @@
+bdd:
+    resource: "@bddBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 login:
     resource: "@loginBundle/Controller/"
     type:     annotation
