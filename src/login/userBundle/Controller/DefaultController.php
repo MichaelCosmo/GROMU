@@ -12,7 +12,7 @@ class DefaultController extends Controller
      * @Route("/login/{name}")
      * @Template()
      */
-    public function indexAction($name)
+    public function IndexAction($name)
     {
         return array('name' => $name);
     }
