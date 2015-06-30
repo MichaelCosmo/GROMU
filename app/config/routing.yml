@@ -1,0 +1,12 @@
+login:
+    resource: "@loginBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+index:
+    path: /index
+    defaults: { _controller: gromu:Advert:index }
