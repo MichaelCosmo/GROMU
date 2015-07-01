@@ -25,16 +25,6 @@ class commentaryClass
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    protected $title;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    protected $date;
-
-    /**
      * @ORM\Column(type="text")
      */
     protected $text;
@@ -47,52 +37,6 @@ class commentaryClass
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return commentaryClass
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return commentaryClass
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**
