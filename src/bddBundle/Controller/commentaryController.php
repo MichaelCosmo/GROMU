@@ -6,25 +6,25 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class messageController extends Controller
+class commentaryController extends Controller
 {
     /**
-     * @Route("/mess")
+     * @Route("/com")
      * @Template()
      */
 
-    public function messageAction()
+    public function commentaryAction()
     {
-       
-        $messageClass = $this->getDoctrine()
-            ->getRepository('bddBundle:messageClass')
+
+        $commentaryClass = $this->getDoctrine()
+            ->getRepository('bddBundle:commentaryClass')
             ->findAll();
 
-        if (!$messageClass) {
+        if (!$commentaryClass) {
             throw $this->createNotFoundException(
                 'error, no messages found'
             );
         }
-        return $this->render('bddBundle:Default:message.html.twig', array('message' => $messageClass, 'name' => null, 'commentary' => null));
+        return $this->render('bddBundle:Default:commentary.html.twig', array('commentary' => $commentaryClass, 'name' => null, 'message' => null));
     }
 }

@@ -1,0 +1,13 @@
+{% for comments in commentary %}
+                    <p>
+                        <h1 id="name">Arthur :
+                            <button type="button" class="btn btn-default btn-xs">
+                                <span class="glyphicon glyphicon-pencil " style="color:black;" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-xs">
+                                <span class="glyphicon glyphicon-remove " style="color:red;" aria-hidden="true"></span>
+                            </button>
+                        </h1>
+                        {{ comments.text }}
+                    </p>
+                {% endfor %}

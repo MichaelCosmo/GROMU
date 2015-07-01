@@ -75,21 +75,7 @@
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-        {% for messages in message %}
-            <div class="col-md-4">
-                <h2>{{ messages.name }}</h2>
-                <p><h1 id="name">Arthur :
-                    <button type="button" class="btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-pencil " style="color:black;" aria-hidden="true"></span>
-                    </button>
-                    <button type="button" class="btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-remove " style="color:red;" aria-hidden="true"></span>
-                    </button>
-                </h1>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><input type="text" class="form-control input-lg" placeholder="Reply"></p>
-            </div>
-        {% endfor %}
+        {{ render(controller('bddBundle:message:message')) }}
     </div>
 
 
