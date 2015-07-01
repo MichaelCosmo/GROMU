@@ -4,5 +4,12 @@ body {
   padding-bottom: 20px;
 }
 .cover{
-    background-image: url(lol.png);
+    background-image: url(bg.jpg);
+    background-size:cover;
 }
+
+#nimportequoi{
+    color:white;
+    font-size: 63px;
+}
+    
