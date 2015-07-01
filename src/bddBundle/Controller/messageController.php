@@ -15,6 +15,7 @@ class messageController extends Controller
 
     public function messageAction($name)
     {
+       
         $messageClass = $this->getDoctrine()
             ->getRepository('bddBundle:messageClass')
             ->findAll();
