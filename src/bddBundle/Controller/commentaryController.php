@@ -15,7 +15,6 @@ class commentaryController extends Controller
      */
     public function indexAction()
     {
-
         $commentaryClass = $this->getDoctrine()
             ->getRepository('bddBundle:commentaryClass');
 

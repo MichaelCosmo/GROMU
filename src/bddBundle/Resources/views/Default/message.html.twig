@@ -3,8 +3,6 @@
 {% for messages in message %}
     <div class="col-md-4">
         <h2>{{ messages.name }}</h2>
-          <p><input type="text" class="form-control input-lg" placeholder="Reply"></p>
-
         {{ render(controller('bddBundle:message:comment', { 'id': messages.id })) }}
     </div>
 {% endfor %}

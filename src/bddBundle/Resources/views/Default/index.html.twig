@@ -42,15 +42,23 @@
             <a class="navbar-brand" href="#">GROMU</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
+            {% if name=="anonyme" %}
+
+                <form class="navbar-form navbar-right" action="/yolo/{{ name }}" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="mail" placeholder="login" class="form-control">
+                        <input type="hidden" name="log" value="true">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+
+            {% else %}
+
+            {% endif %}
+
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -65,7 +73,14 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <input type="text" class="form-control input-lg" placeholder="don't fear bitch <3">
+                <form action="/yolo/{{ name }}" method="POST">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-8"><input name="newMess" type="text" class="form-control input-lg" placeholder="don't fear bitch <3"></div>
+                    <div class="col lg-4"><input type="hidden" name="newMessage" value="true">
+                        <input type="submit" id="validerNewMess" class="btn btn-success btn-lg" value="Add Question">
+                    </div>
+                </form>
+
             </div>
         </div>
 

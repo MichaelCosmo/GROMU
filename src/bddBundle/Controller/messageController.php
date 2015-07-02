@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use bddBundle\Entity;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class messageController extends Controller
 {
@@ -16,7 +17,7 @@ class messageController extends Controller
 
     public function messageAction()
     {
-       
+       $session = new Session();
         $messageClass = $this->getDoctrine()
             ->getRepository('bddBundle:messageClass')
             ->findAll();
@@ -26,7 +27,7 @@ class messageController extends Controller
                 'error, no messages found'
             );
         }
-        return $this->render('bddBundle:Default:message.html.twig', array('message' => $messageClass, 'name' => null, 'commentary' => null, 'user' => null));
+        return $this->render('bddBundle:Default:message.html.twig', array('message' => $messageClass, 'name' => $session->get('name'), 'commentary' => null, 'user' => null));
     }
 
 
@@ -36,6 +37,7 @@ class messageController extends Controller
      */
     public function commentAction($id)
     {
+        $session = new Session();
         $commentaryClass = $this->getDoctrine()->getManager();
         $repository = $commentaryClass->getRepository('bddBundle:commentaryClass');
         $query = $repository->createQueryBuilder('cc')
@@ -52,7 +54,7 @@ class messageController extends Controller
 
         return $this->render('bddBundle:Default:comment.html.twig',
             array('commentary' => $result,
-                'name' => null,
+                'name' => $session->get('name'),
                 'id' => $id,
                 'message' => null));
     }

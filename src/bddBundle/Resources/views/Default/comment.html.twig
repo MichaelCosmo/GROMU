@@ -11,6 +11,15 @@
         <div id="t"> {{ comments.text }}</div><br>
      </p>
 {% endfor %}
+<p><form class="form-inline" action="/yolo/{{ name }}">
+    <div class="form-group">
+        <input type="text" class="form-control input-lg" placeholder="Reply">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info btn-lg">Send</button>
+    </div>
+</form>
+</p>
 
 <script type="text/javascript">
     var bool = false;
