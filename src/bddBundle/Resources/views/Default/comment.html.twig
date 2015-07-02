@@ -1,6 +1,6 @@
 {% for comments in commentary %}
     <p>
-    <h1 id="name"> {{ comments.userLogin.login }} :
+        <h1 id="name"> {{ comments.userLogin.login }} :
         <button type="button" class="btn btn-default btn-xs" onclick="showEditBox()">
             <span id ="salope" class="glyphicon glyphicon-pencil " style="color:black;" aria-hidden="true"></span>
         </button>
@@ -10,7 +10,6 @@
         </h1>
         <div id="t"> {{ comments.text }}</div><br>
      </p>
-
 {% endfor %}
 
 <script type="text/javascript">

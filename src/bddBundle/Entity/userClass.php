@@ -14,15 +14,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 // src/bddBundle/Entity/userClass.php
 class userClass {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Id
+     * @ORM\Column(type="string", length=100)
      */
     protected $login;
 
@@ -30,29 +25,6 @@ class userClass {
      * @ORM\Column(type="text")
      */
     protected $password;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set login
-     *
-     * @param string $login
-     * @return userClass
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
 
     /**
      * Get login

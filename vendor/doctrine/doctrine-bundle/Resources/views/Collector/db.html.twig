@@ -103,8 +103,8 @@
             <table class="alt" id="queriesPlaceholder-{{ loop.index }}">
                 <thead>
                     <tr>
-                        <th onclick="javascript:sortTable(this, 0, 'queries-{{ loop.index }}')" data-sort-direction="-1" style="cursor: pointer;">#<span>&#9650;</span></th>
-                        <th onclick="javascript:sortTable(this, 1, 'queries-{{ loop.index }}')" style="cursor: pointer;">Time<span></span></th>
+                        <th onclick="sortTable(this, 0, 'queries-{{ loop.index }}')" data-sort-direction="-1" style="cursor: pointer;">#<span>&#9650;</span></th>
+                        <th onclick="sortTable(this, 1, 'queries-{{ loop.index }}')" style="cursor: pointer;">Time<span></span></th>
                         <th style="width: 100%;">Info</th>
                     </tr>
                 </thead>
@@ -130,7 +130,7 @@
                             </span>
                             <small>
                                 <strong>Parameters</strong>: {{ query.params|yaml_encode }} <br />
-                                [<span id="expandParams-{{ i }}-{{ loop.parent.loop.index }}" onclick="javascript:toggleRunnableQuery(this);" data-target-id="original-query-{{ i }}-{{ loop.parent.loop.index }}" style="cursor: pointer;">Display runnable query</span>]<br/>
+                                [<span id="expandParams-{{ i }}-{{ loop.parent.loop.index }}" onclick="toggleRunnableQuery(this);" data-target-id="original-query-{{ i }}-{{ loop.parent.loop.index }}" style="cursor: pointer;">Display runnable query</span>]<br/>
                             </small>
 
                             {% if query.explainable %}

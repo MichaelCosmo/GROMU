@@ -14,7 +14,7 @@
  *
  * <pre>
  * {% sandbox %}
- *     {% include 'user.html' %}
+ *     {% include 'user.html.twig.twig' %}
  * {% endsandbox %}
  * </pre>
  *
