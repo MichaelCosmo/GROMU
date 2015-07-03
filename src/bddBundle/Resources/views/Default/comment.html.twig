@@ -1,19 +1,24 @@
 {% for comments in commentary %}
     <p>
         <h1 id="name"> {{ comments.userLogin.login }} :
-        <button type="button" class="btn btn-default btn-xs" onclick="showEditBox()">
+    {% if name==comments.userLogin.login %}
+        <button type="button" class="btn btn-default btn-xs" onclick="showEditBox({{ comments.id }})">
             <span id ="salope" class="glyphicon glyphicon-pencil " style="color:black;" aria-hidden="true"></span>
         </button>
         <button type="button" class="btn btn-default btn-xs">
             <span class="glyphicon glyphicon-remove " style="color:red;" aria-hidden="true"></span>
         </button>
+    {% else %}
+    {% endif %}
         </h1>
-        <div id="t"> {{ comments.text }}</div><br>
+        <div id="t{{ comments.id }}"> {{ comments.text }}</div><br>
      </p>
 {% endfor %}
-<p><form class="form-inline" action="/yolo/{{ name }}">
+<p><form class="form-inline" action="/yolo/{{ name }}" method="POST">
     <div class="form-group">
-        <input type="text" class="form-control input-lg" placeholder="Reply">
+        <input type="text" name="reply" class="form-control input-lg" placeholder="Reply">
+        <input type="hidden" name="idMess" value="{{ id }}">
+        <input type="hidden" name="nameActu" value="{{ name }}">
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-info btn-lg">Send</button>
@@ -23,28 +28,35 @@
 
 <script type="text/javascript">
     var bool = false;
-    function showEditBox() {
-
-        var container = document.getElementById("t");
+    function showEditBox(id) {
+        var text;
+        var area;
+        var container = document.getElementById("t"+id);
         if(bool){
             container.innerHTML = document.getElementById("ta").value;
             var span =  document.getElementById("salope");
             span.className = "glyphicon glyphicon-pencil";
             bool = false;
+            document.location.href="/yolo/{{ name }}?text="+text+"&newComment="+container.innerHTML+"&loginUp={{ name }}&idMessage={{ id }}";
         }
         else {
             if (container) {
-                var area = document.createElement("textarea");
+
+
+
+                area = document.createElement("textarea");
                 area.id = "ta";
                 area.style.height = container.offsetHeight + "px";
                 area.style.width =container.offsetWidth + "px";
                 area.innerHTML = container.textContent;
+                text=container.textContent;
                 area.className="form-control";
                 container.innerHTML ="";
                 container.appendChild(area);
                 var span =  document.getElementById("salope");
                 span.className = "glyphicon glyphicon-ok";
                 bool = true;
+
             }
             else {
                 alert("WTF");

@@ -35,6 +35,11 @@ class userClass {
     {
         return $this->login;
     }
+    public function setLogin($login)
+    {
+        $this->login= $login;
+        return $this;
+    }
 
     /**
      * Set password
